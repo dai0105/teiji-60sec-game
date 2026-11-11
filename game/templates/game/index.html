@@ -1,0 +1,157 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今日は絶対、残業しない。</title>
+
+    <link rel="stylesheet" href="{% static 'game/style.css' %}?v=2">
+</head>
+
+<body>
+
+    <main>
+
+        <section id="title-screen">
+
+            <h1>今日は絶対、残業しない。</h1>
+
+            <p class="empathy-message">
+                今日こそ絶対、定時で帰る。<br>
+                なのに終業直前に限って仕事が降ってくる……。<br>
+                あと60秒。全部かわして帰宅せよ！
+            </p>
+
+            <!-- BEST -->
+            <div>
+                <h2>BEST TIME</h2>
+                <p id="title-best">0.00秒</p>
+            </div>
+
+            <!-- ルール -->
+            <div>
+                <h2>ルール</h2>
+
+                <p>
+                    上から降ってくる仕事を避けながら、
+                    60秒間逃げ切ろう！
+                </p>
+
+                <p>
+                    仕事に1回でも当たると「残業確定」。<br>
+                    60秒逃げ切れば「定時退社！」
+                </p>
+            </div>
+
+            <!-- 操作方法 -->
+            <div>
+                <h2>操作方法</h2>
+
+                <p>
+                    📱 スマホ：指で左右にスライド
+                </p>
+
+                <p>
+                    🖱 PC：マウスで左右にドラッグ
+                </p>
+
+                <p>
+                    ⌨ PC：← → キーでも移動
+                </p>
+            </div>
+
+            <!-- 障害物紹介 -->
+            <div>
+                <h2>降ってくる仕事</h2>
+
+                <p>✉ メール</p>
+                <p>▤ 書類</p>
+                <p>☎ 電話</p>
+                <p>会議</p>
+            </div>
+
+            <!-- 注意 -->
+            <p>
+                ⚠ 時間が経つほど仕事が激しくなる！<br>
+                最後の5秒を逃げ切れ！
+            </p>
+
+            <!-- 最後にスタート -->
+            <button id="start-button" type="button">
+                定時退社を目指す！
+            </button>
+
+            <div class="portal-link-section">
+
+                <p>
+                    ほかのゲームも5分で遊べます
+                </p>
+
+                <a
+                    href="https://five-minute-games-10zm.onrender.com/"
+                    class="portal-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    🎮 ほかの5分ゲームを見る
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ゲーム画面 -->
+        <section id="game-screen" style="display: none;">
+            <h2 id="title">定時まで残り60秒！</h2>
+
+            <p id="timer">60</p>
+
+            <p id="message">
+                仕事を避けろ！
+            </p>
+
+            <p id="best-display">
+                BEST：0.00秒
+            </p>
+
+            <canvas
+                id="game-canvas"
+                width="360"
+                height="600">
+            </canvas>
+        </section>
+
+
+        <!-- リザルト画面 -->
+        <section id="result-screen" style="display: none;">
+
+            <h2 id="result-title">結果</h2>
+
+            <p id="result-catchcopy"></p>
+
+            <div>
+                <p id="result-message"></p>
+            </div>
+
+            <p id="result-best"></p>
+
+            <button id="retry-button" type="button">
+                もう一度逃げる
+            </button>
+
+            <button id="title-button" type="button">
+                タイトルへ戻る
+            </button>
+
+        </section>
+
+    </main>
+
+    <script src="{% static 'game/game.js' %}"></script>
+
+</body>
+</html>
